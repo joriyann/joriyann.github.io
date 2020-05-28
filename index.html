@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scripts</title>
+</head>
+<body>
+
+<p>Crédit photo Adobe Stock</p>
+<a href="javascript:(async()=>{var e=window.open("");if(e){var t=document.querySelector("#titleRenameContainer > p:nth-child(1)").innerText;e.document.write(`<title>${t}</title><style>body{font-family:"TrebuchetMS",Arial,Helvetica,sans-serif;}table{border-collapse:collapse;width:100%;}td{border:1px solid #ddd;padding:8px;}tr:nth-child(even){background-color:#f2f2f2;}tr:hover{background-color:#ddd;}</style><h1>Crédit photo ${t}</h1>`);var d=Array.from(document.querySelectorAll('div.search-result-cell:not([style*="none"])')).map(e=>({id:e.dataset.contentId,img:e.querySelector("a > img").src}));e.document.write(`<p>${d.length} images</p>`);var r=await fetch("/fr/Ajax/Library/getContents",{body:d.map(e=>`content_ids[]=${e.id}`).join("&"),headers:{"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8","X-Requested-With":"XMLHttpRequest"},method:"POST"}),o=await r.json();e.document.write("<table>"),d.forEach((t,d)=>{var r=o.files[t.id];e.document.write(`<tr><td>${d+1}</td><td width="175"><img width="150"src="${t.img}"></td><td width="300">${r.author}</td><td>${r.title}</td></tr>`)}),e.document.write("</table>")}else window.alert("Veuillez désactiver le bloqueur de popup.")})();">Ajouter ce lien en favori</a>
+  
+</body>
+</html>
