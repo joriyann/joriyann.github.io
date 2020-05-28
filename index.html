@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Scripts</title>
 </head>
+
 <body>
 
-<p>Crédit photo Adobe Stock</p>
-<a href="javascript:(async()=>{var e=window.open("");if(e){var t=document.querySelector("#titleRenameContainer > p:nth-child(1)").innerText;e.document.write(`<title>${t}</title><style>body{font-family:"TrebuchetMS",Arial,Helvetica,sans-serif;}table{border-collapse:collapse;width:100%;}td{border:1px solid #ddd;padding:8px;}tr:nth-child(even){background-color:#f2f2f2;}tr:hover{background-color:#ddd;}</style><h1>Crédit photo ${t}</h1>`);var d=Array.from(document.querySelectorAll('div.search-result-cell:not([style*="none"])')).map(e=>({id:e.dataset.contentId,img:e.querySelector("a > img").src}));e.document.write(`<p>${d.length} images</p>`);var r=await fetch("/fr/Ajax/Library/getContents",{body:d.map(e=>`content_ids[]=${e.id}`).join("&"),headers:{"Content-Type":"application/x-www-form-urlencoded; charset=UTF-8","X-Requested-With":"XMLHttpRequest"},method:"POST"}),o=await r.json();e.document.write("<table>"),d.forEach((t,d)=>{var r=o.files[t.id];e.document.write(`<tr><td>${d+1}</td><td width="175"><img width="150"src="${t.img}"></td><td width="300">${r.author}</td><td>${r.title}</td></tr>`)}),e.document.write("</table>")}else window.alert("Veuillez désactiver le bloqueur de popup.")})();">Ajouter ce lien en favori</a>
-  
+  <p>Crédit photo Adobe Stock</p>
+  <a
+    href="javascript:(function()%7B(async%20()%20%3D%3E%20%7B%0A%0A%20%20var%20win%20%3D%20window.open('')%0A%20%20if%20(!win)%20%7B%0A%20%20%20%20window.alert('Veuillez%20d%C3%A9sactiver%20le%20bloqueur%20de%20popup.')%0A%20%20%20%20return%0A%20%20%7D%0A%0A%20%20var%20title%20%3D%20document.querySelector('%23titleRenameContainer%20%3E%20p%3Anth-child(1)').innerText%0A%20%20win.document.write(%60%3Ctitle%3E%24%7Btitle%7D%3C%2Ftitle%3E%3Cstyle%3Ebody%7Bfont-family%3A%22TrebuchetMS%22%2CArial%2CHelvetica%2Csans-serif%3B%7Dtable%7Bborder-collapse%3Acollapse%3Bwidth%3A100%25%3B%7Dtd%7Bborder%3A1px%20solid%20%23ddd%3Bpadding%3A8px%3B%7Dtr%3Anth-child(even)%7Bbackground-color%3A%23f2f2f2%3B%7Dtr%3Ahover%7Bbackground-color%3A%23ddd%3B%7D%3C%2Fstyle%3E%3Ch1%3ECr%C3%A9dit%20photo%20%24%7Btitle%7D%3C%2Fh1%3E%60)%0A%0A%20%20var%20items%20%3D%20Array%0A%20%20%20%20.from(document.querySelectorAll('div.search-result-cell%3Anot(%5Bstyle*%3D%22none%22%5D)'))%0A%20%20%20%20.map(e%20%3D%3E%20(%7B%20id%3A%20e.dataset.contentId%2C%20img%3A%20e.querySelector('a%20%3E%20img').src%20%7D))%0A%0A%20%20win.document.write(%60%3Cp%3E%24%7Bitems.length%7D%20images%3C%2Fp%3E%60)%0A%0A%20%20var%20response%20%3D%20await%20fetch('%2Ffr%2FAjax%2FLibrary%2FgetContents'%2C%20%7B%0A%20%20%20%20body%3A%20items.map(i%20%3D%3E%20%60content_ids%5B%5D%3D%24%7Bi.id%7D%60).join('%26')%2C%0A%20%20%20%20headers%3A%20%7B%0A%20%20%20%20%20%20'Content-Type'%3A%20'application%2Fx-www-form-urlencoded%3B%20charset%3DUTF-8'%2C%0A%20%20%20%20%20%20'X-Requested-With'%3A%20'XMLHttpRequest'%0A%20%20%20%20%7D%2C%0A%20%20%20%20method%3A%20'POST'%2C%0A%20%20%7D)%0A%0A%20%20var%20data%20%3D%20await%20response.json()%0A%0A%20%20win.document.write('%3Ctable%3E')%0A%0A%20%20items.forEach((item%2C%20index)%20%3D%3E%20%7B%0A%20%20%20%20var%20file%20%3D%20data.files%5Bitem.id%5D%0A%20%20%20%20win.document.write(%60%3Ctr%3E%3Ctd%3E%24%7Bindex%20%2B%201%7D%3C%2Ftd%3E%3Ctd%20width%3D%22175%22%3E%3Cimg%20width%3D%22150%22src%3D%22%24%7Bitem.img%7D%22%3E%3C%2Ftd%3E%3Ctd%20width%3D%22300%22%3E%24%7Bfile.author%7D%3C%2Ftd%3E%3Ctd%3E%24%7Bfile.title%7D%3C%2Ftd%3E%3C%2Ftr%3E%60)%0A%20%20%7D)%0A%0A%20%20win.document.write('%3C%2Ftable%3E')%0A%7D)()%7D)()%3B">Ajouter
+    ce lien en favori</a>
+
 </body>
+
 </html>
