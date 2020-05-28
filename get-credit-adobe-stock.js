@@ -1,3 +1,4 @@
+// https://en.wikipedia.org/wiki/Bookmarklet
 // https://skalman.github.io/UglifyJS-online/
 // https://caiorss.github.io/bookmarklet-maker/
 (async () => {
