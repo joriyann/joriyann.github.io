@@ -1,3 +1,5 @@
+// https://skalman.github.io/UglifyJS-online/
+// https://caiorss.github.io/bookmarklet-maker/
 (async () => {
 
   var win = window.open('')
