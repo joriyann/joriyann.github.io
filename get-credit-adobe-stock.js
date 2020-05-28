@@ -33,7 +33,7 @@
 
   items.forEach((item, index) => {
     var file = data.files[item.id]
-    win.document.write(`<tr><td>${index + 1}</td><td width="175"><img width="150"src="${item.img}"></td><td width="300">${file.author}</td><td>${file.title}</td></tr>`)
+    win.document.write(`<tr><td>${index + 1}</td><td width="175"><img width="150"src="${item.img}"></td><td width="300">${file.author}/Adobestock</td><td>${file.title}</td></tr>`)
   })
 
   win.document.write('</table>')
