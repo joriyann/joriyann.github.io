@@ -21,23 +21,24 @@
 		const r1 = document.getElementById('arrayBufferResult')
 		e1.addEventListener('change', (event) => {
 			const f = event.target.files[0]
-			f.arrayBuffer()
-        .then(buffer => r1.innerHTML = 'OK')
-        .catch(e => r1.innerHTML = 'KO')
+			f
+			.arrayBuffer()
+			.then(buffer => r1.innerHTML = 'OK ' + buffer.byteLength)
+			.catch(e => r1.innerHTML = 'KO')
 		})
 
 		const e2 = document.getElementById('readAsArrayBuffer')
-    const r2 = document.getElementById('readAsArrayBufferResult')
-    e2.addEventListener('change', (event) => {
+		const r2 = document.getElementById('readAsArrayBufferResult')
+		e2.addEventListener('change', (event) => {
       
-      new Promise((resolve, reject) => {
-        const f = event.target.files[0]
-        const reader = new FileReader()
-        reader.onload = (e) => { resolve(e) }
-        reader.readAsArrayBuffer(f)
-      })
-      .then(buffer => r2.innerHTML = 'OK')
-      .catch(e => r2.innerHTML = 'KO')
+			new Promise((resolve, reject) => {
+				const f = event.target.files[0]
+				const reader = new FileReader()
+				reader.onload = (e) => { resolve(e.target.result) }
+				reader.readAsArrayBuffer(f)
+			})
+			.then(buffer => r2.innerHTML = 'OK ' + buffer.byteLength)
+			.catch(e => r2.innerHTML = 'KO')
 		})
 
 	</script>
@@ -45,4 +46,3 @@
 
 </body>
 </html>
-
