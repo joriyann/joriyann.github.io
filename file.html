@@ -18,17 +18,26 @@
 
 	<script type="text/javascript">
 		const e1 = document.getElementById('arrayBuffer')
+    const r1 = document.getElementById('arrayBufferResult)
 		e1.addEventListener('change', (event) => {
 			cont f = event.target.files[0]
-			f.arrayBuffer.then(buffer => console.log(buffer))
+			f.arrayBuffer
+        .then(buffer => r1.innerHtml = 'OK')
+        .catch(e => r1.innerHtml = 'KO')
 		})
 
 		const e2 = document.getElementById('readAsArrayBuffer')
-		e2.addEventListener('change', (event) => {
-			cont f = event.target.files[0]
-		    const reader = new FileReader();
-		    reader.onload = (e) => { console.log(e) };
-		    reader.readAsArrayBuffer(f);
+    const r2 = document.getElementById('readAsArrayBufferResult)
+    e2.addEventListener('change', (event) => {
+      
+      new Promise((resolve, reject) => {
+        const f = event.target.files[0]
+        const reader = new FileReader();
+        reader.onload = (e) => { resolve(e) };
+        reader.readAsArrayBuffer(f);
+      })
+      .then(buffer => r2.innerHtml = 'OK')
+      .catch(e => r2.innerHtml = 'KO')
 		})
 
 	</script>
