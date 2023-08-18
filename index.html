@@ -20,6 +20,10 @@
     Ajouter le lien suivant en favori :
     <a href="javascript:(function()%7B(async()%3D%3E%7Bvar%20t%3D''%2Ce%3D%60Cr%C3%A9dit%20photo%20%24%7Bdocument.querySelector('%23titleRenameContainer%20%3E%20p%3Anth-child(1)').innerText%7D%60%3Bt%2B%3D%60%3Ctitle%3E%24%7Be%7D%3C%2Ftitle%3E%3Cstyle%3Ebody%7Bfont-family%3A%22TrebuchetMS%22%2CArial%2CHelvetica%2Csans-serif%3B%7Dtable%7Bborder-collapse%3Acollapse%3Bwidth%3A100%25%3B%7Dtd%7Bborder%3A1px%20solid%20%23ddd%3Bpadding%3A8px%3B%7Dtr%3Anth-child(even)%7Bbackground-color%3A%23f2f2f2%3B%7Dtr%3Ahover%7Bbackground-color%3A%23ddd%3B%7D%3C%2Fstyle%3E%3Ch1%3E%24%7Be%7D%3C%2Fh1%3E%60%3Bvar%20d%3DArray.from(document.querySelectorAll('div.search-result-cell%3Anot(%5Bstyle*%3D%22none%22%5D)')).map(t%3D%3E(%7Bid%3At.dataset.contentId%2Cimg%3At.querySelector('a%20%3E%20img').dataset.lazy%7D))%3Bt%2B%3D%60%3Cp%3E%24%7Bd.length%7D%20images%3C%2Fp%3E%60%3Bvar%20o%3Dawait%20fetch('%2Ffr%2FAjax%2FLibrary%2FgetContents'%2C%7Bbody%3Ad.map(t%3D%3E%60content_ids%5B%5D%3D%24%7Bt.id%7D%60).join('%26')%2Cheaders%3A%7B'Content-Type'%3A'application%2Fx-www-form-urlencoded%3B%20charset%3DUTF-8'%2C'X-Requested-With'%3A'XMLHttpRequest'%7D%2Cmethod%3A'POST'%7D)%2Ca%3Dawait%20o.json()%3Bt%2B%3D'%3Ctable%3E'%2Cd.forEach((e%2Cd)%3D%3E%7Bvar%20o%3Da.files%5Be.id%5D%3Bt%2B%3D%60%3Ctr%3E%3Ctd%3E%24%7Bd%2B1%7D%3C%2Ftd%3E%3Ctd%20width%3D%22175%22%3E%3Cimg%20width%3D%22150%22src%3D%22%24%7Be.img%7D%22%3E%3C%2Ftd%3E%3Ctd%20width%3D%22300%22%3E%24%7Bo.author%7D%2FAdobestock%3C%2Ftd%3E%3Ctd%3E%24%7Bo.title%7D%3C%2Ftd%3E%3C%2Ftr%3E%60%7D)%2Ct%2B%3D'%3C%2Ftable%3E'%3Bvar%20r%3Ddocument.createElement('a')%3Br.setAttribute('href'%2C'data%3Atext%2Fhtml%3Bcharset%3Dutf-8%2C'%2BencodeURIComponent(t))%2Cr.setAttribute('download'%2C%60%24%7Be%7D.htm%60)%2Cr.style.display%3D'none'%2Cdocument.body.appendChild(r)%2Cr.click()%2Cdocument.body.removeChild(r)%7D)()%3B%7D)()%3B">Crédit photo Abode Stock</a>
   </p>
+  <h2>Simple - Mes recettes et courses</h2>
+  <p>
+    <a href="./simple">Lien</a>
+  </p>
 </body>
 
 </html>
