@@ -11,14 +11,13 @@
 
   <body>
     <header>
+      <button type="button">↩</button>
       <h1>Simple</h1>
+      <button type="button">🔍</button>
     </header>
     <main>
       <section id="recettes">
-        <form>
-          <input type="search" name="q" placeholder="Rechercher" />
-        </form>
-        <div class="recipes" style="display_: none">
+        <div class="recipes">
           <article class="recipe">
             <img
               src="https://images.pexels.com/photos/47347/broccoli-vegetable-food-healthy-47347.jpeg"
@@ -32,11 +31,11 @@
                 <span>🕓 45 min</span>
               </div>
               <div>
-                <span>Italien</span>
-                <span>Traditionnelle</span>
-                <span>Végétarien</span>
-                <span>Printemps</span>
-                <span>🌞🍆 Un déjeuner de soleil</span>
+                <span class="badge">Italien</span>
+                <span class="badge">Traditionnelle</span>
+                <span class="badge">Végétarien</span>
+                <span class="badge">Printemps</span>
+                <span class="badge">🌞🍆 Un déjeuner de soleil</span>
               </div>
             </div>
           </article>
@@ -56,122 +55,126 @@
                 <span>🕓 45 min</span>
               </div>
               <div>
-                <span>Italien</span>
-                <span>Traditionnelle</span>
-                <span>🌞🍆 Un déjeuner de soleil</span>
+                <span class="badge">Italien</span>
+                <span class="badge">Traditionnelle</span>
+                <span class="badge">🌞🍆 Un déjeuner de soleil</span>
               </div>
             </div>
           </article>
         </div>
         <article class="recipe-detail">
-          <button type="button">↩⬅🔙</button>
           <img
             src="https://www.undejeunerdesoleil.com/wp-content/uploads/2019/09/Pates_pesto_courgettes.jpg"
           />
-          <h2>Pâtes au pesto de courgettes</h2>
           <div>
-            <span>⭐⭐⭐⭐⭐</span>
-            <span>🕓 45 min</span>
+            <h2>Pâtes au pesto de courgettes</h2>
+            <div>
+              <span>⭐⭐⭐⭐⭐</span>
+              <span>🕓 45 min</span>
+            </div>
+            <div>
+              <span class="badge">Italien</span>
+              <span class="badge">Traditionnelle</span>
+              <span class="badge">🌞🍆 Un déjeuner de soleil</span>
+            </div>
+            <h3>Ingrédients</h3>
+            <ul>
+              <li>
+                <span>320 g</span> pâtes format long type spaghetti ou court
+                (penne, mezze maniche…)
+              </li>
+              <li>
+                <span>320 g</span> courgettes les plus petites et/ou fermes et
+                douces possible
+              </li>
+              <li>
+                <span>2</span> petites gousses ail ou une grande coupée en deux)
+              </li>
+              <li>
+                <span>1</span> bouquet basilic frais (une trentaine de feuilles)
+              </li>
+              <li>
+                <span>50 g</span> parmesan ou pecorino romano râpés + un peu
+              </li>
+              <li><span>40 g</span> pignons pin ou noix de cajou</li>
+              <li>huile d'olive vierge extra</li>
+              <li>sel</li>
+              <li>poivre</li>
+              <li>
+                <span>1</span> c. à soupe câpres trempés dans l'eau (facultatif)
+              </li>
+              <li><span>1</span> petite courgette jaune (facultatif)</li>
+            </ul>
+            <h3>Préparation</h3>
+            <ol>
+              <li>
+                Faire bouillir de l'eau dans une grande casserole. Puis la
+                saler.
+              </li>
+              <li>
+                Pendant ce temps, laver et couper les courgettes (sans les
+                extrémités) en petits dés (y compris la jaune). Les faire sauter
+                dans une poêle avec une gousse d'ail épluchée et deux càs
+                d'huile pendant 5 minutes.
+              </li>
+              <li>
+                Dans le bol du mixeur, mettre l'autre gousse d'ail en morceaux
+                (ou la moitié si on souhaite moins aillé) avec les noix de cajou
+                ou les pignons, les câpres, le basilic lavé et le parmesan.
+                Mixer par à coups puis verser en deux fois de l'huile d'olive
+                (environ 10 cl voire un peu plus, on peut aussi diluer avec un
+                peu d'eau) afin d'obtenir une sorte de pâte un peu dense.
+                Ajouter la moitié des courgettes juste sautées et mixer à
+                nouveau afin d'obtenir un pesto plus lisse et aqueux. Saler et
+                poivrer. Mettre dans un saladier
+              </li>
+              <li>
+                Quand l'eau de la casserole bout, y jeter les pâtes et laisser
+                cuire le temps indiqué sur le paquet en remuant de temps à
+                autre.
+              </li>
+              <li>
+                Pendant que les pâtes cuisent, faire cuire encore un peu les
+                courgettes restantes dans la poêle avec 2 càs d'eau jusqu'à ce
+                qu'elles soient plus tendres (mais toujours avec leur forme et
+                un peu al dente).
+              </li>
+              <li>
+                Egoutter les pâtes avec un peu d'eau de cuisson, les verser dans
+                le saladier, mélanger rapidement afin de les enrober de pesto
+                puis ajouter les courgettes sautées (sauf la jaune).
+              </li>
+              <li>
+                Servir bien chaud avec des copeaux de parmesan, les morceaux de
+                courgette jaune, un filet d'huile d'olive et des feuilles de
+                basilic.
+              </li>
+            </ol>
+            <h3>Notes</h3>
+            <p>
+              Comme tous les plats de pâtes de ce type, elles sont minute et se
+              dégustent de suite (autrement elles vont coller, sécher et perdre
+              en goût). Pour vous organiser, vous pouvez préparer le pesto (et
+              le couvrir d'huile ou de film alimentaire au contact) et les
+              courgettes quelques heures à l'avance. Il vous suffira juste de
+              cuire et assaisonner les pâtes à la dernière minute.
+              <br />
+              Texture et goût : vous avec bien sûr les pâtes al dente avec des
+              morceaux de courgettes plus fondants. C'est des pâtes au pesto
+              mais en mode plus délicat et léger du fait des courgettes dans le
+              pesto, toujours parfumé avec en plus la saveur douce des
+              courgettes.
+            </p>
+            <p>
+              🌐
+              <a
+                href="https://www.undejeunerdesoleil.com/2019/09/pates-pesto-courgettes.html"
+                target="_blank"
+              >
+                Pâtes au pesto de courgettes</a
+              >
+            </p>
           </div>
-          <div>
-            <span>Italien</span>
-            <span>Traditionnelle</span>
-            <span>🌞🍆 Un déjeuner de soleil</span>
-          </div>
-          <h3>Ingrédients</h3>
-          <ul>
-            <li>
-              <span>320 g</span> pâtes format long type spaghetti ou court
-              (penne, mezze maniche…)
-            </li>
-            <li>
-              <span>320 g</span> courgettes les plus petites et/ou fermes et
-              douces possible
-            </li>
-            <li>
-              <span>2</span> petites gousses ail ou une grande coupée en deux)
-            </li>
-            <li>
-              <span>1</span> bouquet basilic frais (une trentaine de feuilles)
-            </li>
-            <li>
-              <span>50 g</span> parmesan ou pecorino romano râpés + un peu
-            </li>
-            <li><span>40 g</span> pignons pin ou noix de cajou</li>
-            <li>huile d'olive vierge extra</li>
-            <li>sel</li>
-            <li>poivre</li>
-            <li>
-              <span>1</span> c. à soupe câpres trempés dans l'eau (facultatif)
-            </li>
-            <li><span>1</span> petite courgette jaune (facultatif)</li>
-          </ul>
-          <h3>Préparation</h3>
-          <ol>
-            <li>
-              Faire bouillir de l'eau dans une grande casserole. Puis la saler.
-            </li>
-            <li>
-              Pendant ce temps, laver et couper les courgettes (sans les
-              extrémités) en petits dés (y compris la jaune). Les faire sauter
-              dans une poêle avec une gousse d'ail épluchée et deux càs d'huile
-              pendant 5 minutes.
-            </li>
-            <li>
-              Dans le bol du mixeur, mettre l'autre gousse d'ail en morceaux (ou
-              la moitié si on souhaite moins aillé) avec les noix de cajou ou
-              les pignons, les câpres, le basilic lavé et le parmesan. Mixer par
-              à coups puis verser en deux fois de l'huile d'olive (environ 10 cl
-              voire un peu plus, on peut aussi diluer avec un peu d'eau) afin
-              d'obtenir une sorte de pâte un peu dense. Ajouter la moitié des
-              courgettes juste sautées et mixer à nouveau afin d'obtenir un
-              pesto plus lisse et aqueux. Saler et poivrer. Mettre dans un
-              saladier
-            </li>
-            <li>
-              Quand l'eau de la casserole bout, y jeter les pâtes et laisser
-              cuire le temps indiqué sur le paquet en remuant de temps à autre.
-            </li>
-            <li>
-              Pendant que les pâtes cuisent, faire cuire encore un peu les
-              courgettes restantes dans la poêle avec 2 càs d'eau jusqu'à ce
-              qu'elles soient plus tendres (mais toujours avec leur forme et un
-              peu al dente).
-            </li>
-            <li>
-              Egoutter les pâtes avec un peu d'eau de cuisson, les verser dans
-              le saladier, mélanger rapidement afin de les enrober de pesto puis
-              ajouter les courgettes sautées (sauf la jaune).
-            </li>
-            <li>
-              Servir bien chaud avec des copeaux de parmesan, les morceaux de
-              courgette jaune, un filet d'huile d'olive et des feuilles de
-              basilic.
-            </li>
-          </ol>
-          <h3>Notes</h3>
-          <p>
-            Comme tous les plats de pâtes de ce type, elles sont minute et se
-            dégustent de suite (autrement elles vont coller, sécher et perdre en
-            goût). Pour vous organiser, vous pouvez préparer le pesto (et le
-            couvrir d'huile ou de film alimentaire au contact) et les courgettes
-            quelques heures à l'avance. Il vous suffira juste de cuire et
-            assaisonner les pâtes à la dernière minute.
-            <br />
-            Texture et goût : vous avec bien sûr les pâtes al dente avec des
-            morceaux de courgettes plus fondants. C'est des pâtes au pesto mais
-            en mode plus délicat et léger du fait des courgettes dans le pesto,
-            toujours parfumé avec en plus la saveur douce des courgettes.
-          </p>
-          <p>
-            🌐
-            <a
-              href="https://www.undejeunerdesoleil.com/2019/09/pates-pesto-courgettes.html"
-              target="_blank"
-            >
-              Pâtes au pesto de courgettes</a
-            >
-          </p>
         </article>
       </section>
       <section id="planning" style="display: none">
