@@ -1,2 +1,3 @@
-const sample = await fetch("./sample.json").then((r) => r.json());
-const recipes = document.querySelector("#recipes");
+const recipes = await fetch("./sample.json").then((r) => r.json())
+const recipesContainer = document.querySelector("#recipes")
+console.log(recipes)
