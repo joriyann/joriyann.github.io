@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# Partages réseau
+sudo mkdir -p /mnt/blake/media /mnt/blake/elements
+echo "//blake/media /mnt/blake/media cifs _netdev,guest,iocharset=utf8,uid=osmc,gid=osmc,x-systemd.automount,vers=3.0 0 0" | sudo tee -a /etc/fstab
+echo "//blake/Elements /mnt/blake/elements cifs _netdev,guest,iocharset=utf8,uid=osmc,gid=osmc,x-systemd.automount,vers=3.0 0 0" | sudo tee -a /etc/fstab
+sudo mount -a
+
+# Aria2
+sudo apt install -y aria2c
+
+# Aria2 configuration
+cat <<EOT >/tmp/aria2c.conf
+daemon
+continue
+enable-rpc=true
+rpc-listen-all=true
+rpc-secret=j5LUzpcxfh4WFtozy5BgHI9AyWXUL4LsavPTeHTC140
+dir=/mnt/blake/media/Downloads
+file-allocation=none
+max-connection-per-server=5
+seed-time=0
+disable-ipv6
+EOT
+
+sudo mv /tmp/aria2c.conf /etc/aria2c.conf 
+
+# Aria2 service
+cat <<EOT >/tmp/aria2c.service
+[Unit]
+Description = Aria2 download manager
+After = network-online.target
+[Service]
+Type = forking
+User = osmc
+ExecStart = aria2c --conf-path=/etc/aria2c.conf
+[Install]
+WantedBy = multi-user.target
+EOT
+
+sudo mv /tmp/aria2c.service /etc/systemd/system/aria2c.service
+sudo systemctl enable aria2c
+sudo systemctl start aria2c
+
+
