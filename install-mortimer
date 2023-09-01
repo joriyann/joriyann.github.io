@@ -7,7 +7,7 @@ echo "//blake/Elements /mnt/blake/elements cifs _netdev,guest,iocharset=utf8,uid
 sudo mount -a
 
 # Aria2
-sudo apt install -y aria2c
+sudo apt install -y aria2
 
 # Aria2 configuration
 cat <<EOT >/tmp/aria2c.conf
