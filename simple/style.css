@@ -110,6 +110,10 @@ header {
   margin-bottom: 1rem;
 }
 
+header h1 {
+  margin-right: auto;
+}
+
 header button {
   border: none;
   background: none;
@@ -144,7 +148,8 @@ nav a:hover {
 article {
   flex-grow: 1;
   background-color: var(--c-grey-000);
-  box-shadow: 0 5px 20px 0 rgba(150, 132, 254, 0.1),
+  box-shadow: 
+    0 5px 20px 0 rgba(150, 132, 254, 0.1),
     0 15px 30px 0 rgba(150, 132, 254, 0.05);
   border-radius: 1rem;
   padding: 1rem;
