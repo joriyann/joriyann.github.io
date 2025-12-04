@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fusion PDF & Images</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .preview {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+      .preview div {
+        margin: 5px;
+        text-align: center;
+        font-size: 12px;
+      }
+      .preview img {
+        max-width: 100px;
+        max-height: 100px;
+        border: 1px solid #ccc;
+        padding: 3px;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .error {
+        color: red;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Uploader vos fichiers (images ou PDF)</h2>
+    <input type="file" id="fileInput" multiple accept="image/*,.pdf" />
+    <div class="preview" id="preview"></div>
+    <button id="processBtn">Générer PDF</button>
+    <button id="clearBtn">Tout supprimer</button>
+    <div id="result"></div>
+
+    <!-- Scripts CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/browser-image-compression/dist/browser-image-compression.js"></script>
+
+    <script>
+      const { PDFDocument } = PDFLib;
+      const MAX_SIZE_BYTES = 3 * 1024 * 1024; // 3 Mo
+
+      const fileInput = document.getElementById("fileInput");
+      const previewDiv = document.getElementById("preview");
+      const resultDiv = document.getElementById("result");
+      const clearBtn = document.getElementById("clearBtn");
+
+      fileInput.addEventListener("change", () => {
+        previewDiv.innerHTML = "";
+        for (const file of fileInput.files) {
+          const container = document.createElement("div");
+          if (file.type.startsWith("image/")) {
+            const img = document.createElement("img");
+            img.src = URL.createObjectURL(file);
+            container.appendChild(img);
+
+            const sizeInfo = document.createElement("p");
+            sizeInfo.textContent = `Avant compression: ${(
+              file.size / 1024
+            ).toFixed(1)} Ko`;
+            container.appendChild(sizeInfo);
+          } else {
+            const p = document.createElement("p");
+            p.textContent = `PDF : ${file.name}`;
+            container.appendChild(p);
+          }
+          previewDiv.appendChild(container);
+        }
+      });
+
+      document
+        .getElementById("processBtn")
+        .addEventListener("click", async () => {
+          const files = fileInput.files;
+          if (!files.length) {
+            alert("Veuillez sélectionner des fichiers.");
+            return;
+          }
+
+          resultDiv.innerHTML = "Traitement en cours...";
+          const mergedPdfBytes = await processFiles(files);
+
+          resultDiv.innerHTML = "";
+
+          if (mergedPdfBytes.length > MAX_SIZE_BYTES) {
+            const errorMsg = document.createElement("div");
+            errorMsg.className = "error";
+            errorMsg.textContent = `Erreur : le PDF généré dépasse 3 Mo (${(
+              mergedPdfBytes.length /
+              1024 /
+              1024
+            ).toFixed(
+              2
+            )} Mo). Veuillez réduire le nombre d'images ou la qualité.`;
+            resultDiv.appendChild(errorMsg);
+            return;
+          }
+
+          const blob = new Blob([mergedPdfBytes], { type: "application/pdf" });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = "document.pdf";
+          link.textContent = "Télécharger le PDF";
+          resultDiv.appendChild(link);
+        });
+
+      // Bouton pour tout supprimer
+      clearBtn.addEventListener("click", () => {
+        fileInput.value = "";
+        previewDiv.innerHTML = "";
+        resultDiv.innerHTML = "";
+      });
+
+      async function processFiles(files) {
+        const pdfDoc = await PDFDocument.create();
+
+        for (const file of files) {
+          if (file.type.startsWith("image/")) {
+            // Compression forcée en JPEG
+            const compressed = await imageCompression(file, {
+              maxSizeMB: 0.5,
+              maxWidthOrHeight: 1500,
+              fileType: "image/jpeg",
+            });
+
+            // Affiche la taille après compression
+            const sizeInfo = document.createElement("p");
+            sizeInfo.textContent = `Après compression: ${(
+              compressed.size / 1024
+            ).toFixed(1)} Ko`;
+            previewDiv
+              .querySelector(`img[src="${URL.createObjectURL(file)}"]`)
+              ?.parentElement.appendChild(sizeInfo);
+
+            const imgBytes = await compressed.arrayBuffer();
+            const img = await pdfDoc.embedJpg(imgBytes);
+            const page = pdfDoc.addPage([img.width, img.height]);
+            page.drawImage(img, {
+              x: 0,
+              y: 0,
+              width: img.width,
+              height: img.height,
+            });
+          } else if (file.type === "application/pdf") {
+            const pdfBytes = await file.arrayBuffer();
+            const donorPdf = await PDFDocument.load(pdfBytes);
+            const pages = await pdfDoc.copyPages(
+              donorPdf,
+              donorPdf.getPageIndices()
+            );
+            pages.forEach((p) => pdfDoc.addPage(p));
+          }
+        }
+
+        return await pdfDoc.save();
+      }
+    </script>
+  </body>
+</html>
